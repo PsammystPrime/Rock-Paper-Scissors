@@ -27,4 +27,8 @@ button{
     background-color: aliceblue;
     margin: 40px;
     border-radius: 10px;
+    text-align: center;
+}
+button:hover{
+    background-color: cadetblue;
 }

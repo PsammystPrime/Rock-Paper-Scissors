@@ -1,10 +1,10 @@
+
 # ROCK-Paper-Scissors
- This is a game that is common.
- It's designed purely using javascript with the full intent of testing one's understanding of the language.
- You can fully play it from the console-at the moment.
- To get to the console;
- open your computer browser,
- click on the three dots of the side pannel,
- navigate to more tools and eventually to the developer tools.
- Have fun.
- ALL commits are in a separate document.
+ This is a game initially created to run on the console.  
+ The rules are as follows:  
+ 1. Rock beats Scissors; This is because a rock can break a pair of scissors and not vice-versa.  
+ 2. Scissors beat Paper; This is because a pair of scissors can cut a piece of paper.  
+ 3. Paper beats Rock; This is so because working smart beats working hard.  
+ It's designed using HTML, CSS & JavaScript with the full intent of testing one's ability to solve challenges.
+
+ **Have fun**

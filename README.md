@@ -1,5 +1,6 @@
 
-# ROCK-Paper-Scissors
+# Rock-Paper-Scissors
+<img src = './rps ui.png'>
  This is a game initially created to run on the console.  
  The rules are as follows:  
  1. Rock beats Scissors; This is because a rock can break a pair of scissors and not vice-versa.  

@@ -1,53 +1,51 @@
-const user = document.querySelector('.displayUser');
+const user = document.querySelector('#displayUser');
 const display = document.querySelector('.displayWinner');
+const comp = document.querySelector('#displayComputer');
+// const para = document.querySelector('.para');
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
-const buttons = document.querySelectorAll('buttons');
+// const buttons = document.querySelectorAll('buttons');
 
 
+let userSelected = ''
 function userSelection(){
     user.textContent = ''
-    rock.addEventListener('click', function () { user.textContent = 'rock', computerSelection()})
-    paper.addEventListener('click', function () { user.textContent = 'paper', computerSelection()})
-    scissors.addEventListener('click', function () { user.textContent = 'scissors', computerSelection()})
-
+    rock.addEventListener('click', function () { userSelected = 'rock',displaySelections()})
+    paper.addEventListener('click', function () { userSelected = 'paper',displaySelections()})
+    scissors.addEventListener('click', function () { userSelected = 'scissors',displaySelections()})
 };
 userSelection()
 //buttons.forEach( (button) => addEventListener('click', console.log('click')) )
-let computer = '';
 
-function computerSelection () {
-    const choices = ['rock', 'paper', 'scissors']
-    // let a = Math.random()
-    // let b = Math.floor(a*10)
-  
-    // if(b === 0 ||b ===  1 ||b ===  4 ||b ===  7 ){
-    //      c = 0
-    // } else  if(b === 2 || b === 5 ||b ===  8 ){
-    //      c = 1
-    // } else if(b === 3 ||b ===  6 ||b ===  9 ){
-    //     c = 2
-    // }
-    let randomNum = Math.floor(Math.random()*choices.length)
-    computer = choices[randomNum]
-    console.log(computer)
-
-    checkWinner()
-
-      return computer
+function displaySelections (){
+    user.textContent = `You choose ${userSelected}`
+    computerSelection()
 };
 
+let computer = '';
+function computerSelection () {
+    const choices = ['rock', 'paper', 'scissors']
+
+    let randomNum = Math.floor(Math.random()*choices.length)
+    computer = choices[randomNum]
+    comp.textContent = `computer ${''} chooses  ${computer}`
+
+    checkWinner()
+};
+
+
 function checkWinner() {
-if (computer === user.textContent){
+    display.textContent = ''
+if (computer === userSelected){
   return display.textContent = 'draw'
-} if(computer === 'rock' && user.textContent === 'scissors'){
+} if(computer === 'rock' && userSelected.includes('scissors')){ 
    return display.textContent ='Computer wins'
-} if(computer == 'scissors' && user.textContent == 'paper'){
+} if(computer === 'scissors' && userSelected === 'paper'){
    return display.textContent ='Computer wins'
-} if(computer == 'paper' && user.textContent == 'rock'){
+} if(computer === 'paper' && userSelected === 'rock'){
    return display.textContent ='Computer wins'
 }else{
     display.textContent = 'You win'
 }
-}
+};

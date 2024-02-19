@@ -1,15 +1,18 @@
 body{
     background-color: black;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .display{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 40px;
+    margin: 40px 0 40px 0;
 }
 .displayUser, .displayWinner, .displayComputer{
-    width: 500px;
+    width: 150px;
     height: 150px;
     background-color: aliceblue;
     text-align: center;
@@ -33,7 +36,7 @@ border-bottom-right-radius: 10px;
 }
 .buttons{
     display: flex;
-    gap: 20px;
+    gap: 10px;
     justify-content: center;
 }
 button{

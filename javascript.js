@@ -1,75 +1,51 @@
+const user = document.querySelector('#displayUser');
+const display = document.querySelector('.displayWinner');
+const comp = document.querySelector('#displayComputer');
+// const para = document.querySelector('.para');
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+// const buttons = document.querySelectorAll('buttons');
 
 
-function playRound(playerSelection, computerSelection){
-return {playerSelection, computerSelection}
+let userSelected = ''
+function userSelection(){
+    user.textContent = ''
+    rock.addEventListener('click', function () { userSelected = 'rock',displaySelections()})
+    paper.addEventListener('click', function () { userSelected = 'paper',displaySelections()})
+    scissors.addEventListener('click', function () { userSelected = 'scissors',displaySelections()})
+};
+userSelection()
+//buttons.forEach( (button) => addEventListener('click', console.log('click')) )
+
+function displaySelections (){
+    user.textContent = `You choose ${userSelected}`
+    computerSelection()
+};
+
+let computer = '';
+function computerSelection () {
+    const choices = ['rock', 'paper', 'scissors']
+
+    let randomNum = Math.floor(Math.random()*choices.length)
+    computer = choices[randomNum]
+    comp.textContent = `computer ${''} chooses  ${computer}`
+
+    checkWinner()
+};
+
+
+function checkWinner() {
+    display.textContent = ''
+if (computer === userSelected){
+  return display.textContent = 'draw'
+} if(computer === 'rock' && userSelected.includes('scissors')){ 
+   return display.textContent ='Computer wins'
+} if(computer === 'scissors' && userSelected === 'paper'){
+   return display.textContent ='Computer wins'
+} if(computer === 'paper' && userSelected === 'rock'){
+   return display.textContent ='Computer wins'
+}else{
+    display.textContent = 'You win'
 }
-
-const playerSelection=prompt('ROCK,PAPER OR SCISSORS?').toLowerCase();
-
-const computerSelection=getComputerChoice();
-function getComputerChoice(){
-    const words=[]
-    words[0]='rock'
-    words[1]='paper'
-    words[2]='scissors'
-    const index= Math.floor(Math.random()*words.length);
-    return words[index]
-    }
-    console.log(playRound(playerSelection, computerSelection))
-
-const rock='paper'>'rock'>'scissors'
-const scissors='rock'>'scissors'>'paper'
-const paper='scissors'>'paper'>'rock'
-
-function roundResult(){
-   
-    
-if (playerSelection==='rock' && computerSelection==='scissors'){
-    return 'Rock beats Scissors,you WIN!'
-}
-if (playerSelection==='rock' && computerSelection==='paper'){
-    return 'you LOSE!'
-}
-if (playerSelection===computerSelection){
-    return 'DRAW'
-}
-if (playerSelection===''){
-    return alert('Invalid')
-}
-
-if (playerSelection==='paper' && computerSelection==='rock'){
-    return 'Paper beats Rock,you WIN!'
-}
-if (playerSelection==='paper' && computerSelection==='scissors'){
-    return 'you LOSE!'
-}
-
-
-if (playerSelection==='scissors' && computerSelection==='paper'){
-    return 'Scissors beats Paper,you WIN!'
-}
-if (playerSelection==='scissors' && computerSelection==='rock'){
-    return 'you LOSE!'
-}
-}
-console.log(roundResult())
-
-
-function game(){
-    roundOne;
-    roundTwo;
-    roundThree;
-    roundFour;
-    roundFive;
-
-}
-const roundOne=playRound(playerSelection, computerSelection);
-const roundTwo=playRound(playerSelection, computerSelection);
-const roundThree=playRound(playerSelection, computerSelection);
-const roundFour=playRound(playerSelection, computerSelection);
-const roundFive=playRound(playerSelection, computerSelection);
-
-console.log(game());
-
-
-
+};

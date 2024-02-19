@@ -6,6 +6,7 @@ const scissors = document.querySelector('.scissors');
 const buttons = document.querySelectorAll('buttons');
 
 function userSelection(){
+    user.textContent = ''
     rock.addEventListener('click', function () { user.textContent = 'rock', computerSelection()})
     paper.addEventListener('click', function () { user.textContent = 'paper', computerSelection()})
     scissors.addEventListener('click', function () { user.textContent = 'scissors', computerSelection()})
@@ -16,32 +17,34 @@ let computer = '';
 
 function computerSelection () {
     const choices = ['rock', 'paper', 'scissors']
-    let a = Math.random()
-    let b = Math.floor(a*10)
+    // let a = Math.random()
+    // let b = Math.floor(a*10)
   
-    if(b === 0 ||b ===  1 ||b ===  4 ||b ===  7 ){
-         c = 0
-    } else  if(b === 2 || b === 5 ||b ===  8 ){
-         c = 1
-    } else if(b === 3 ||b ===  6 ||b ===  9 ){
-        c = 2
-    }
-
-    computer = choices[c]
+    // if(b === 0 ||b ===  1 ||b ===  4 ||b ===  7 ){
+    //      c = 0
+    // } else  if(b === 2 || b === 5 ||b ===  8 ){
+    //      c = 1
+    // } else if(b === 3 ||b ===  6 ||b ===  9 ){
+    //     c = 2
+    // }
+    let randomNum = Math.floor(Math.random()*choices.length)
+    computer = choices[randomNum]
+  
     console.log(computer)
 
     checkWinner()
 
+      return computer
     // rock.addEventListener('click', ))
 };
 
 function checkWinner() {
-    display.textContent = ''
-
+    display.textContent =''
+console.log(computer+'dd')
 if (computer === user.textContent){
-    display.textContent = 'draw'
+ return   display.textContent = 'draw'
 } if(computer === 'rock' && user.content === 'scissors'){
-    console.log('Computer wins')
+   return console.log('Computer wins')
 } if(computer == 'rock' && user.content == 'paper'){
     console.log('Paper wins')
 } if(computer == 'scissors' && user.content == 'paper'){

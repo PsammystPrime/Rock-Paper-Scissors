@@ -1,16 +1,18 @@
-const display = document.querySelector('.display');
+const user = document.querySelector('.displayUser');
+const display = document.querySelector('.displayWinner');
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
 const buttons = document.querySelectorAll('buttons');
 
 function userSelection(){
-    rock.addEventListener('click', function () { display.textContent = 'rock', computerSelection()})
-    paper.addEventListener('click', function () { display.textContent = 'paper', computerSelection()})
-    scissors.addEventListener('click', function () { display.textContent = 'scissors', computerSelection()})
+    rock.addEventListener('click', function () { user.textContent = 'rock', computerSelection()})
+    paper.addEventListener('click', function () { user.textContent = 'paper', computerSelection()})
+    scissors.addEventListener('click', function () { user.textContent = 'scissors', computerSelection()})
 };
 userSelection()
 //buttons.forEach( (button) => addEventListener('click', console.log('click')) )
+let computer = '';
 
 function computerSelection () {
     const choices = ['rock', 'paper', 'scissors']
@@ -24,8 +26,31 @@ function computerSelection () {
     } else if(b === 3 ||b ===  6 ||b ===  9 ){
         c = 2
     }
-    let computer = choices[c]
-    console.log()
+
+    computer = choices[c]
+    console.log(computer)
+
+    checkWinner()
+
     // rock.addEventListener('click', ))
 };
 
+function checkWinner() {
+    display.textContent = ''
+
+if (computer === user.textContent){
+    display.textContent = 'draw'
+} if(computer === 'rock' && user.content === 'scissors'){
+    console.log('Computer wins')
+} if(computer == 'rock' && user.content == 'paper'){
+    console.log('Paper wins')
+} if(computer == 'scissors' && user.content == 'paper'){
+    console.log('Computer wins')
+} if(computer == 'scissors' && user.content == 'rock'){
+    console.log('rock wins')
+} if(computer == 'paper' && user.content == 'rock'){
+    console.log('Computer wins')
+} if(computer == 'paper' && user.content == 'scissors'){
+    console.log('scissors wins')
+}
+}

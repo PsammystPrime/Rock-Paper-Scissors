@@ -12,5 +12,5 @@ The rules are as follows:
 ###
 It's designed using HTML, CSS & JavaScript with the full intent of testing one's ability to solve challenges.
 
-###
+
  **Have fun**
